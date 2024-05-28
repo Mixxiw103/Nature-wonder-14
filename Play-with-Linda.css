@@ -1,0 +1,93 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fff6e9;
+}
+h2{
+    color: white;
+}
+#hat {
+    top: 0;
+    left: 0;
+    width: 650px;
+    height: 650px;
+    background: url(image/wheel.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 200px;
+}
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+}
+#needle {
+    position: absolute;
+    top: 630px;
+    left: 285px;
+    transform-origin: 0% 50%;
+    width: 3px;
+    height: 100px;
+    background-color: darkgreen;
+    border: 1.5px solid white;
+    border-radius: 3px;
+    transform: rotate(7deg);
+}
+#secret1{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 35vw;
+    background: #000000;
+    transition: .3s ease;
+}
+#secret2{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 35vw;
+    background: #333;
+    transition: .3s ease;
+}
+#paris_date{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 35vw;
+    background: #ad0179;
+    transition: .3s ease;
+    height: fit-content;
+}
+#hanquoc{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 35vw;
+    background: #025f5f;
+    transition: .3s ease;
+}
+/* Responsive */
+@media (max-width: 1023px){
+    #hat{
+        width: 100% !important;
+        height: 420px;
+    }
+    #needle{
+        left: 43.5%;
+        top: 40%;
+    }
+    #secret1, #secret2, #paris_date, #hanquoc{
+        width: 90vw;
+    }
+    #spin_btn{
+        margin-top: 70px;
+    }
+    #result{
+        margin-top: 70px;
+    }
+}

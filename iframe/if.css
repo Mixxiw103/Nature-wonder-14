@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container{
+    width: 800px;
+    margin: 0;
+}
+h2{
+   color: #514b44;
+
+}
+img{
+    width: 800px;
+}
+.container ul li{
+    margin-left: 30px;
+    
+}
+p{
+    color: #26201b;
+    margin: 25px 0;
+    font-size: 20px;
+}
+.container ul{
+    list-style-type:disc;
+    margin-bottom: 30px;
+}
+.container ul li{
+    font-size: 20px;
+}

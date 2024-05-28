@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Play-with-Linda.css">
+<title>Chơi cùng Linda</title>
+</head>
+<body>
+  <audio id="playbackMusic" src="image/0504(1).mp3"></audio>
+  <div id="hat"></div>
+  <div id="needle"></div>
+  <div id="secret1">
+    <h2>Linda muốn nói với bạn!</h2>
+    <video id="video_player1" width="100%">
+      <source src="image/Di_ra(1).mp4" type="video/mp4">
+    </video>
+    <button id="videobtn1" onclick="play1()">Xem video</button>
+  </div>
+  <div id="secret2">
+    <h2>Linda muốn tâm sự với bạn!</h2>
+    <video id="video_player2" width="100%">
+      <source src="image/Postcard_Asuk.mp4" type="video/mp4">
+    </video>
+    <button id="videobtn2" onclick="play2()">Xem video</button>
+  </div>
+  <div id="paris_date">
+    <h2>Đi date cùng Linda!</h2>
+    <div>
+      <video id="video_player3" width="60%">
+        <source src="image/Linda_Gaoranger.mp4" type="video/mp4">
+      </video>
+      <button id="videobtn3" onclick="play3()">Xem video</button>
+    </div>
+    <img src="image/Paris.jpg" alt="Date with Linda" width="75%">
+  </div>
+  <div id="hanquoc">
+    <h2>Linda muốn hát cho bạn nghe!</h2>
+    <video id="video_player4" width="70%">
+      <source src="image/HanQuoc.mp4" type="video/mp4">
+    </video>
+    <button id="videobtn4" onclick="play4()">Xem video</button>
+  </div>
+  <button id="spin_btn" onclick="spin()">Quay</button>
+  <div id="result"></div>
+  <script>
+    function play1() {
+      var video_play1 = document.getElementById('video_player1');
+      video_play1.play();
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 6600);
+    }
+    function play2() {
+      var video_play2 = document.getElementById('video_player2');
+      video_play2.play();
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 44000);
+    }
+    function play3() {
+      var video_play3 = document.getElementById('video_player3');
+      video_play3.play();
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 56000);
+    }
+    function play4() {
+      var video_play4 = document.getElementById('video_player4');
+      video_play4.play();
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 44000);
+    }
+    var currentRotation = 0; 
+    var backgroundMusic = document.getElementById('playbackMusic');
+    function spin() {
+      var degrees = Math.floor(Math.random() * 380) + 275; 
+      var result = document.getElementById('result');
+      var spin_btn = document.getElementById("spin_btn");
+      spin_btn.style.display = "none";
+      hat.style.transition = 'transform 14.95s ease-out'; 
+      playbackMusic.play();
+      setTimeout(function() {
+        currentRotation = currentRotation + degrees; 
+        hat.style.transform = 'rotate(' + currentRotation + 'deg)'; 
+      }, 500);
+      setTimeout(function() {
+        var sections = [
+          { name: 'Ô bí mật', link: '#', class: 'oBiMat' },
+          { name: 'Châu Âu', link: 'ChauAu.htm' },
+          { name: 'Châu Á', link: 'ChauA.htm' },
+          { name: '7 kì quan', link: 'index.htm' },
+          { name: 'Châu Phi', link: 'Chauphi.htm' },
+	        { name: 'Trò Chơi', link: 'game1.htm' },
+          { name: ' Ô bí mật', link: '#', class: 'oBiMat' },
+          { name: 'Paris', link: '#' },
+          { name: 'Châu Mĩ', link: 'ChauMy.htm' },
+          { name: 'Trò Chơi', link: 'game1.htm' },
+	        { name: 'Châu Đại Dương', link: 'ChauDD.htm' },
+	        { name: 'Hàn Quốc', link: '#' }
+        ];
+        var index = Math.floor(currentRotation / 30) % 12;
+        var link = document.createElement('a');
+        if(sections[index].name == 'Ô bí mật'){
+          link.addEventListener('click', function(){
+            document.getElementById('secret1').style.right = '0';
+          })
+        }
+        if(sections[index].name == ' Ô bí mật'){
+          link.addEventListener('click', function(){
+            document.getElementById('secret2').style.right = '0';
+          })
+        }
+        if(sections[index].name == 'Paris'){
+          link.addEventListener('click', function(){
+            document.getElementById('paris_date').style.right = '0';
+          })
+        }
+        if(sections[index].name == 'Hàn Quốc'){
+          link.addEventListener('click', function(){
+            document.getElementById('hanquoc').style.right = '0';
+          })
+        }
+        link.href = sections[index].link;
+        link.textContent = 'Kết quả: ' + sections[index].name;
+        result.textContent = "";
+        result.append(link);
+        spin_btn.style.display = "inline";
+      }, 16500);
+    }
+  </script>
+</body>
+</html>

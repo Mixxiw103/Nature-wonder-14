@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Lienhe.css">
+    <script src="https://kit.fontawesome.com/856fcad114.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1 id="title">Đăng kí để chat với chúng tôi</h1>
+            <form id="contactForm">
+                <div class="input-wrap">
+                    <div class="input-field" id="name_field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" placeholder="Nguyễn Văn A">
+                    </div>
+                    <h5 id="name_error">Hãy nhập tên của bạn</h5>
+                    <div class="input-field">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="example@exmail.com">
+                    </div>
+                    <h5 id="email_error">Hãy nhập email của bạn</h5>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Mật khẩu">
+                    </div>
+                    <h5 id="pw_error">Hãy nhập mật khẩu của bạn</h5>
+                    <div class="input-field" id="question_field">
+                        <input type="text" id="question" placeholder="Viết câu hỏi của bạn vào đây">
+                    </div>
+                    <h5 id="ques_error">Hãy nhập cẩu hỏi của bạn</h5>
+                </div>
+                <div class="btn-field">
+                    <button type="button" class="disable" id="signup">Đăng kí</button>
+                    <button type="button" class="enable" id="signin">Đăng nhập</button>
+                </div>
+                <button type="button" class="enable done" id="submit">Gửi thông tin</button><br>
+                <a href="index.html"><i class="fa-solid fa-house"></i></a>
+            </form>
+        </div>
+    </div>
+    <script>
+        let signup = document.getElementById("signup");
+        let signin = document.getElementById("signin");
+        let name_field = document.getElementById("name_field");
+        let title = document.getElementById("title");
+        let submit = document.getElementById("submit");
+        let question_field = document.getElementById("question_field");
+        let name_error = document.getElementById("name_error");
+        let email_error = document.getElementById("email_error");
+        let pw_error = document.getElementById("pw_error");
+        let ques_error = document.getElementById("ques_error");
+        window.onload = function(){
+            question_field.style.maxHeight = "0";
+            name_error.style.display = "none";
+            email_error.style.display = "none";
+            pw_error.style.display = "none";
+            ques_error.style.display = "none";
+        }
+        signin.onclick = function(){
+            name_field.style.maxHeight = "0";
+            question_field.style.maxHeight = "60px";
+            title.innerHTML = "Đăng nhập và điền câu hỏi";
+            name_error.style.display = "none";
+            email_error.style.display = "none";
+            pw_error.style.display = "none";
+            ques_error.style.display = "none";
+        }
+        signup.onclick = function(){
+            name_field.style.maxHeight = "60px";
+            question_field.style.maxHeight = "0";
+            title.innerHTML = "Đăng kí để chat với chúng tôi";
+            name_error.style.display = "none";
+            email_error.style.display = "none";
+            pw_error.style.display = "none";
+            ques_error.style.display = "none";
+        }
+        submit.onclick = function() {
+            var error = true;
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let question = document.getElementById("question").value;
+
+            if (!name && title.innerHTML.includes("Đăng kí")) {
+                name_error.style.display = "block";
+                error = false;
+            }else{
+                name_error.style.display = "none";
+            }
+            if (!email || !email.includes("@")) {
+                email_error.style.display = "block";;
+                error = false;
+            }else{
+                email_error.style.display = "none";
+            }
+            if (!password || password.length < 8) {
+                pw_error.style.display = "block";
+                error = false;
+            }else{
+                pw_error.style.display = "none";
+            }
+            if (title.innerHTML.includes("Đăng nhập") && !question) {
+                ques_error.style.display = "block";;
+                error = false;
+            }else{
+                ques_error.style.display = "none";
+            }
+            if(error == false)
+                return;
+            alert("Thông tin đã được gửi thành công!");
+            
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("question").value = "";
+        }
+    </script>
+</body>
+</html>

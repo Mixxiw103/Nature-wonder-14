@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/856fcad114.js" crossorigin="anonymous"></script>
+<title>Trò chơi Xâu Chuỗi</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: black;
+    color: white;
+  }
+  #question {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  #answer {
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    outline: none;
+  }
+  #countdown {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  i{
+    color: white;
+    font-size: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+</style>
+</head>
+<body>
+  <h1>Trò chơi sắp xếp từ</h1>
+  <div id="question" style="display: none;">Câu 4: em / Nhà / ảnh / Bác / Hồ / treo</div>
+  <input type="text" id="answer" style="display: none;" placeholder="Nhập câu trả lời">
+  <div id="countdown" style="display: none;">Thời gian còn lại: <span id="timer"></span> giây</div>
+  <button onclick="startGame()">Bắt đầu</button>
+  <audio src="image/30s.mp3" id="playbackMusic"></audio>
+  <br><br><br>
+  <a href="game3.htm"><i class="fa-solid fa-arrow-left"></i></a>
+  <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  <a href="game5.htm"><i class="fa-solid fa-arrow-right"></i></a>
+  <script>
+    var answerInput = document.getElementById('answer');
+    var timerDisplay = document.getElementById('timer');
+    var playbackMusic = document.getElementById('playbackMusic');
+
+    function startGame() {
+      playbackMusic.currentTime = 0; // Đặt thời gian của nhạc về đầu
+      playbackMusic.play(); // Phát nhạc
+
+      setTimeout(function() {
+        document.getElementById('question').style.display = 'block';
+        document.getElementById('answer').style.display = 'block';
+        document.getElementById('countdown').style.display = 'block';
+
+        var countdown = 30; 
+        var countdownInterval = setInterval(function() {
+          countdown--;
+          timerDisplay.textContent = countdown;
+
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            timerDisplay.textContent = 'Hết giờ, 0';
+            alert("Bạn đã thua, bạn đang được trở về trang chủ");
+            window.location.href = "index.html";
+          }
+        }, 1000);
+
+        answerInput.addEventListener('keyup', function(event) {
+          if (event.keyCode === 13) { // Nhấn Enter
+            checkAnswer(countdownInterval);
+          }
+        });
+      }, 2500); // Delay 2.5 giây trước khi hiển thị đếm ngược
+    }
+
+    function checkAnswer(countdownInterval) {
+      var answer = answerInput.value.trim();
+      if (answer === "Nhà em treo ảnh Bác Hồ") {
+        clearInterval(countdownInterval); // Dừng đếm ngược nếu câu trả lời đúng
+        alert('Chúc mừng! Bạn đã trả lời đúng!');
+        answerInput.value = ''; // Xóa nội dung nhập vào
+
+        // Dừng nhạc hiện tại và chuyển sang nhạc khác
+        playbackMusic.pause();
+        playbackMusic.src = "image/win.mp3";
+        playbackMusic.currentTime = 0; // Đặt thời gian của nhạc về đầu để phát lại
+        playbackMusic.play();
+      } else {
+        answerInput.value = ''; // Xóa nội dung nhập vào nếu trả lời sai
+      }
+    }
+  </script>
+</body>
+</html>

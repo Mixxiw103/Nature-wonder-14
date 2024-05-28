@@ -1,0 +1,463 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+    font-size: 65%;
+    box-sizing: border-box;
+    text-align: justify;
+}
+body{
+    background-color: #fff6e9;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 7;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+.banner{
+    width: 100%;
+    height: 45vh;
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(image/Cau-vang.jpg);
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+}
+.navbar{
+    padding: 35px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 100px;
+    cursor: pointer;
+}
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 125%;
+    font-weight: 500;
+}
+
+.navbar ul li::after {
+    content: "";
+    height: 3px;
+    width: 0%;
+    background: gold;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    transition: width 1s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.ul{
+    margin: 0px;
+    padding: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 7px lightcyan;
+    list-style: none;
+    position: absolute;
+    display: none;
+    z-index: 2;
+    background: rgb(31, 97, 79);
+}
+.ul>li>a{
+    display: block;
+    line-height: 30px;
+    text-decoration: none;
+    font-variant: small-caps;
+    padding: 1px 0px;
+}
+.ul>li>a:hover{
+    color: lightsalmon;
+    font-weight: bolder;
+}
+.navbar ul li:hover>.ul{
+    display: block;
+}
+.ul1{
+    min-width: 15.1rem;
+}
+.ul2{
+    min-width: 23.5rem;
+}
+
+.nav__bars {
+    width: 50px;
+    height: 50px;
+    fill: white;
+    display: none;
+}
+
+/* SUBNAV */
+.subnavbar {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    background-color: white;
+    width: 60%;
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    transition: 0.3s ease;
+
+}
+.subnavbar.active {
+    right: 0;
+}
+
+.subnavbar__list{
+    margin-top: 100px;
+    list-style: none;
+    
+}
+.subnavbar__item {
+    padding: 15px 40px;
+    border-top: 1px solid #BDBDBD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subnavbar__item:last-child {
+    border-bottom: 1px solid #BDBDBD;
+
+}
+
+.subnavbar__item svg {
+    width: 30px;
+    height: 30px;
+}
+
+.subnavbar__item-down {
+    display: none;
+}
+
+/* .subnavbar__list>li {
+} */
+.subnavbar__list>li a{
+    color: black;
+    text-decoration: none;
+}
+
+.subnavbar__item__list {
+    display: none;
+}
+.subnavbar__item__list.active {
+    display: block;
+}
+
+.subnavbar__item__list>li{
+    padding: 15px 45px;
+
+}
+
+.subnavbar__item__list>li a{
+    text-decoration: none;
+    color: black;
+
+}
+.subnav__times {
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 60px;
+    line-height: 60px;
+}
+.ctanh{
+    position: relative;
+}
+.ctanh h1{
+    color: #f2d7af;
+    text-align: center;
+    font-size: 400%;
+}
+.h1{
+    font-size: 400%;
+    font-weight: bolder;
+    padding: 35px;
+}
+.faqs, .faq{
+    transition: .3 ease-in-out;
+    margin: 0 20px 40px 20px;
+}
+.faqs .faq .header{
+    background: url(image/faq-header-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    padding: 30px 50px;
+    align-items: center;
+    transition: .3 ease-in-out;
+    display: flex;
+    justify-content: space-between;
+}
+.faqs .faq .header h3{
+    color: #26201b;
+    font-size: 210%;
+}
+i{
+    font-size: 350%;
+    color: #26201b;
+}
+.content{
+    background-color: white;
+    padding: 30px;
+    margin: 0 75px;
+    font-size: 160%;
+    display: none;
+}
+.content p, .content ol, .content ul, .content li, .content h3 {
+    margin-bottom: 20px;
+}
+.content li{
+    margin-left: 15px;
+}
+.last{
+    margin: 40px;
+    display: flex;
+}
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+    width: 50%;
+    margin-right: 10px;
+}
+  
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+.mySlides img{
+    width: 100%;
+    height: 40rem; 
+    object-fit: cover; 
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: darkblue;
+    font-size: 250%;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+    width: 100%;
+    height: 8rem; 
+    object-fit: cover; 
+    cursor: pointer;
+}
+.active,
+.demo:hover {
+    opacity: 1;
+}
+.links{
+    width: 50%;
+    margin-left: 10px;
+    display: grid;
+}
+.links a{
+    background-image: url(image/faq-header-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #26201b;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    align-items: center;
+    font-size: 300%;
+    text-decoration: none;
+    text-align: center;
+}
+.links a:hover{
+    background-image: url(image/faq-header-bg-choice.svg);
+    color: wheat;
+    font-weight: bold;
+}
+#footer{
+    padding: 50px;
+    padding-bottom: 100px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid #636930;
+}
+#footer .footer__list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#footer .fmenu{
+    padding: 0 50px;
+}
+#footer .fmenu ul{
+    column-count: 3;
+    column-gap: 30px;
+}
+#footer .fmenu ul li{
+    padding-bottom: 10px;
+    list-style: none;
+}
+#footer .fmenu ul li a{
+    color: #636930;
+    text-decoration: none;
+    font-size: 175%;
+    font-weight: 550;
+}
+.media{
+    color: #402717;
+    margin-bottom: 16px;
+    display: inline-block;
+    font-size: 25px;
+}
+.social{
+    display: flex;
+}
+.social li{
+    padding-right: 15px;
+    list-style: none;
+}
+/* Tablet and Mobile */
+@media (max-width: 1023px) {
+    .navbar ul {
+        display: none;
+    }
+    .nav__bars {
+        display: block;
+    }
+    #footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__list {
+        margin: 40px 0;
+    }
+    .social {
+        display: flex;
+        justify-content: center;
+    }
+    .banner {
+        height: 30vh;
+    }
+    i{
+        padding-left: 7px;
+    }
+    .faqs{
+        padding: unset;
+        margin: unset;
+    }
+    .faqs .faq .header{
+        padding: 10px;
+        margin: unset;
+    }
+    .content{
+        margin: 10px;
+    }
+    .last{
+        margin: 5px;
+        display: block;
+    }
+    .container{
+        width: 100%;
+        margin: 0;
+    }
+    .links{
+        width: 100%;
+        margin: 20px 0 0 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .navbar .logo {
+        width: 60px;
+    }
+    .nav__bars {
+        width: 25px;
+    }
+    .subnavbar {
+        width: 80%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+
+}

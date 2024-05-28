@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="dentajmahal.css">
+    <meta charset = "utf-8">
+    <title>Đền Taj Mahal</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div class="image-container">
+                <h1> ĐỀN TAJ MAHAL</h1>
+            </div>
+            <img src="https://cdn.pixabay.com/photo/2021/10/10/20/33/mehtab-bagh-6698669_1280.jpg" alt="" width = "1000" height = "600">
+        </div>
+        <div id="main">
+            <h1>Về đền Taj Mahal </h1>
+            <div class="ndung"> 
+                <div class="vanban">
+                    <p>Taj Mahal, ngôi đền nổi tiếng ở Ấn Độ được xem là biểu tượng của tình yêu bất diệt giữa hoàng đế Shah Jahan và hoàng hậu Mumtaz Mahal. Đền Taj Mahal nằm ở thành phố Agra bang Utar Pradesh, phía bắc Ấn Độ. Ngôi đền được xây bằng đá trắng trên một không gian rộng lớn, hài hòa làm tôn lên vẻ đẹp diễm lệ, thanh khiết của nó. Với kiến trúc Ấn – Hồi đặc trưng, Taj Mahal lung linh trên trời xanh như một viên ngọc quý làm ngây ngất bất cứ ai có dịp được chiêm ngưỡng.</p>
+                    <p>Lịch sử xây dựng Taj Mahal gắn liền với câu chuyện về tình yêu bất diệt của hoàng đế Shah Jahan (lên ngôi năm 1627) với người vợ yêu quý là hoàng hậu Mumtaz Mahah. Bà không may qua đời ở tuổi 39 sau khi sinh người con thứ 14 của họ (1631).</p>
+                </div>           
+                <div class="img">
+                    <img src="https://booking.pystravel.vn/uploads/posts/albums/4018/b5af86835d9d6ea74062fe1c0985f970.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <div style="clear: both;"></div>
+                <div class="body2">
+                    <a href="iframe/if_fj1.html" target="a" id="auto1"> <button class="a" >Lịch Sử</button></a>
+                    <a href="iframe/if_fj2.html" target="a"  id="auto2"> <button class="a">Kiến Trúc </button></a>
+                    <a href="iframe/if_fj3.html" target="a"  id="auto3"> <button class="a">Khu Vườn</button></a>
+                    <a href="iframe/if_fj4.html" target="a"  id="auto4"> <button class="a">Ý Nghĩa Và Di Sản</button></a>
+                    <iframe name="a" class="if" width="70%" height="1500px" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+        <article class="art">
+            <h3>Địa điểm nổi bật </h3>
+            <div class="new">
+                <a href="địa_điểm (2).html" class="c1">
+                    <div class="content">
+                        <h4>Cầu Cổng Vàng</h4>
+                        <img src="img/GGbrigde.jpg" alt="ảnh đẹp">
+                        <div class="text">
+                            Đây là một trong những cây cầu nổi tiếng 
+                            nhất trên thế giới, được xây dựng từ thép 
+                            và có màu đỏ cổ điển.Nó đẹp nhất là khoảng 
+                            khắc được ánh sáng mặt trời chiếu vào.
+                        </div>
+                      </div>
+                </a>
+                <a href="địa_điểm (3).html" class="c1">
+                    <div class="content">
+                        <h4>Tháp Eiffel</h4>
+                        <img src="img/eiffel.jpg" alt="ảnh đẹp">
+                        <div class="text">
+                          Tháp Eiffel, biểu tượng của Paris và Pháp, 
+                          là một kiệt tác kiến trúc được xây dựng vào 
+                          năm 1889. Với vẻ đẹp lộng lẫy và sức hút 
+                          vô cùng mạnh mẽ.
+                      </div>
+                      </div>
+                    </a>
+                    <a href="địa_điểm (1).html" class="c1">
+                        <div class="fix">
+                            <h4>Cầu Vàng </h4>
+                            <img src="img/bcv.jpg" alt="ảnh đẹp">
+                            <div class="text">
+                                Cầu Vàng ở Đà Nẵng là biểu tượng nổi 
+                                bật của du lịch Việt Nam với cấu trúc 
+                                độc đáo và vẻ đẹp tuyệt vời, thu hút 
+                                du khách khắp nơi trên thế giới.
+                            </div>
+                          </div>
+        
+                    </a>
+                  <div style="clear: both;"></div>
+            </div>
+        </article>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              var link = document.getElementById('auto1');
+              if (link) {
+                link.click();
+                
+              }
+            });
+        
+            document.getElementById("auto1").addEventListener("click", handleLinkClick);
+            document.getElementById("auto2").addEventListener("click", handleLinkClick);
+            document.getElementById("auto3").addEventListener("click", handleLinkClick);
+            document.getElementById("auto4").addEventListener("click", handleLinkClick);
+            document.getElementById("auto5").addEventListener("click", handleLinkClick);
+            document.getElementById("auto6").addEventListener("click", handleLinkClick);
+        
+            function handleLinkClick(event) {
+              var buttons = document.getElementsByClassName("a");
+              
+              for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("selected");
+              }
+              
+              event.target.classList.add("selected");
+            }
+        </script>
+    <footer>
+        <div class="container2">
+          <div><a href="#"><img src="img/logo.jpg" alt="" class="logo"></a></div>
+          <div class="fmenu">
+          <ul>
+              <li><a href="#">7 kì quan</a></li>
+              <li><a href="#">Châu Á</a></li>
+              <li><a href="#">Châu Âu</a></li>
+              <li><a href="#">Châu Mỹ</a></li>
+              <li><a href="#">Châu Phi</a></li>
+              <li><a href="#">Tin tức</a></li>
+              <li><a href="#">Châu Đại Dương</a></li>
+              <li><a href="#">Liên hệ</a></li>
+          </ul>
+      </div>
+      <div>
+          <span class="media">Theo dõi chúng tôi tại:</span>
+          <ul class="social">
+              <li><a href="#"><img src="img/facebook.svg" alt=""></a></li>
+              <li><a href="#"><img src="img/instagram.svg" alt=""></a></li>
+          </ul>
+      </div>
+      </footer>
+</body>
+</html>
